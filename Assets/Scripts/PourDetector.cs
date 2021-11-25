@@ -8,6 +8,7 @@ public class PourDetector : MonoBehaviour {
     public GameObject streamPrefab;
     public Renderer liquidRenderer;
     public SContainer container;
+    public SLiquid liquid;
 
     private bool isPouring = false;
     private bool isEmpty = false;
@@ -18,6 +19,11 @@ public class PourDetector : MonoBehaviour {
 
     private void Start() {
         liquidRenderer.material.SetFloat("_FillAmount", container.maxFillAmount);
+        liquidRenderer.material.SetColor("_Tint", liquid.liquidColor); 
+        Color lightColor = new Color(liquid.liquidColor.r * 2f, liquid.liquidColor.g * 2f, liquid.liquidColor.b * 2f);
+        liquidRenderer.material.SetColor("_RimColor", lightColor);
+        liquidRenderer.material.SetColor("_TopColor", lightColor);
+        liquidRenderer.material.SetColor("_FoamColor", lightColor);
         pourThreshold = container.pourThreshold;
     }
 
@@ -36,13 +42,13 @@ public class PourDetector : MonoBehaviour {
 
     private void StartPour() {
         currentStream = CreateStream();
-        currentStream.Begin();
+        currentStream.Begin(liquid.liquidColor, liquid.liquidFluidity);
 
         InvokeRepeating(nameof(EmptyingBottle), 0.0f, 0.05f);
     }
 
     private void EmptyingBottle() {
-        float val = liquidRenderer.material.GetFloat("_FillAmount") + 0.01f;
+        float val = liquidRenderer.material.GetFloat("_FillAmount") + (0.01f*liquid.liquidFluidity);
         liquidRenderer.material.SetFloat("_FillAmount", val);
         if (val >= container.minFillAmount) {
             isEmpty = true;

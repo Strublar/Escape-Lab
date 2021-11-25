@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aa03169f7a6e074e957e68af5dd6bdc, type: 3}
-  m_Name: GlassContainer
+  m_Script: {fileID: 11500000, guid: da77f2f8e1ec1544da5bb0889ddc806b, type: 3}
+  m_Name: GreenLiquid
   m_EditorClassIdentifier: 
-  maxFillAmount: 0.36
-  minFillAmount: 0.66
-  pourThreshold: 70
+  liquidColor: {r: 0.496351, g: 0.735849, b: 0.56166863, a: 1}
+  liquidFluidity: 1

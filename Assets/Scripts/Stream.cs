@@ -10,7 +10,8 @@ public class Stream : MonoBehaviour {
     private Coroutine pourRoutine;
     private Vector3 targetPosition = Vector3.zero;
 
-    public float streamSpeed = 0.5f;
+    private Color color;
+    private float fluidity;
 
     private void Awake() {
         lineRenderer = GetComponent<LineRenderer>();
@@ -22,7 +23,11 @@ public class Stream : MonoBehaviour {
         MoveToPosition(1, transform.position);
     }
 
-    public void Begin() {
+    public void Begin(Color color, float fluidity) {
+        this.fluidity = fluidity;
+        lineRenderer.sortingOrder = 1;
+        lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
+        lineRenderer.material.color = color;
         pourRoutine = StartCoroutine(nameof(BeginPour));
     }
 
@@ -68,7 +73,7 @@ public class Stream : MonoBehaviour {
 
     private void AnimateToPosition(int index, Vector3 targetPosition) {
         Vector3 currentPoint = lineRenderer.GetPosition(index);
-        Vector3 newPosition = Vector3.MoveTowards(currentPoint, targetPosition, Time.deltaTime*1.5f);
+        Vector3 newPosition = Vector3.MoveTowards(currentPoint, targetPosition, Time.deltaTime*1.5f*fluidity);
 
         lineRenderer.SetPosition(index, newPosition);
     }

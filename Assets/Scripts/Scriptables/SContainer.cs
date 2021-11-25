@@ -5,9 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "LiquidContainer", menuName = "ScriptableContainer")]
 public class SContainer : ScriptableObject {
 
-    public float maxFillAmount;
-    public float minFillAmount;
+    public float maxFillAmount = 0.6f;
+    public float minFillAmount = 1f;
 
-    public int pourThreshold;
+    public int pourThreshold = 90;
 
 }

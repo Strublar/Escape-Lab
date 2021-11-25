@@ -4861,7 +4861,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b8066d97465989409767709d0c01555, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  streamSpeed: 1
 --- !u!120 &5238570228697279500
 LineRenderer:
   m_ObjectHideFlags: 0
