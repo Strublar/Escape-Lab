@@ -157,7 +157,7 @@ Material:
     - _EnableFogOnTransparent: 1
     - _EnableGeometricSpecularAA: 0
     - _EnergyConservingSpecularColor: 1
-    - _FillAmount: 0.36
+    - _FillAmount: 0.42
     - _HeightAmplitude: 0.02
     - _HeightCenter: 0.5
     - _HeightMapParametrization: 0
@@ -239,13 +239,13 @@ Material:
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissiveColorLDR: {r: 0, g: 0, b: 0, a: 1}
-    - _FoamColor: {r: 0.70980394, g: 0.8588236, b: 0.7490196, a: 1}
+    - _FoamColor: {r: 0.6448024, g: 0.8293695, b: 0.8490566, a: 1}
     - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
-    - _RimColor: {r: 0.7086597, g: 0.8584906, b: 0.75071746, a: 1}
+    - _RimColor: {r: 0.6313726, g: 0.8117648, b: 0.8352942, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _ThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
-    - _Tint: {r: 0.5166429, g: 0.8490566, b: 0.6099098, a: 1}
+    - _Tint: {r: 0.505162, g: 0.8000035, b: 0.8301887, a: 1}
     - _TopColor: {r: 1, g: 1, b: 1, a: 1}
     - _TransmittanceColor: {r: 1, g: 1, b: 1, a: 1}
     - _UVDetailsMappingMask: {r: 1, g: 0, b: 0, a: 0}

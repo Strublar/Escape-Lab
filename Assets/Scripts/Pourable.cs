@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PourDetector : MonoBehaviour {
+public class Pourable : MonoBehaviour {
 
     public Transform origin;
     public GameObject streamPrefab;
