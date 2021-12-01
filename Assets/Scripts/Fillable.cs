@@ -5,9 +5,13 @@ public class Fillable : MonoBehaviour {
 
     public Renderer liquidRenderer;
     public SContainer container;
-   // public SLiquid liquid;
-
     public float fillamount = 0;
+
+    private Rigidbody rb;
+
+    private void Awake() {
+        rb = GetComponent<Rigidbody>();
+    }
 
     private void Start() {
         liquidRenderer.material.SetFloat("_FillAmount", container.minFillAmount);
@@ -27,6 +31,8 @@ public class Fillable : MonoBehaviour {
         //remplir si ce n'est pas deja rempli
         if (val >= container.maxFillAmount) { 
             liquidRenderer.material.SetFloat("_FillAmount", val-liquidAmount);
+            rb.WakeUp();
+            rb.mass += liquidAmount*2;
         }
         //changer coulor (get liquid color if empty, turn brown if another color)
         Color actualColor = liquidRenderer.material.GetColor("_Tint");
