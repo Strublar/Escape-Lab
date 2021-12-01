@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed = 12f;
     [SerializeField] private float gravity = -10f;
     [SerializeField] private float jumpHeight = 2f;
-    [SerializeField] private float mouseSensitivity = 2f;
+    [SerializeField] private float turnSensitivity = 2f;
 
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float groundDistance = 0.4f;
@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     float yRotation = 0f;
     InputAction movement;
     InputAction jump;
+    InputAction turn;
 
     void Start()
     {
@@ -43,6 +44,10 @@ public class PlayerMovement : MonoBehaviour
         
         jump = new InputAction("PlayerJump", binding: "<Keyboard>/space");
 
+        /*turn = new InputAction("PlayerTurn");
+        turn.AddCompositeBinding("Dpad")
+        .With("Left", "<Keyboard>/q")
+        .With("Right", "<Keyboard>/e");*/
 
         movement.Enable();
         jump.Enable();
@@ -56,14 +61,12 @@ public class PlayerMovement : MonoBehaviour
         #region Translation
         float x;
         float z;
-        bool jumpPressed = false;
 
         var delta = movement.ReadValue<Vector2>();
         x = delta.x;
         z = delta.y;
-        jumpPressed = Mathf.Approximately(jump.ReadValue<float>(), 1);
 
-
+        bool jumpPressed = Mathf.Approximately(jump.ReadValue<float>(), 1);
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         if (isGrounded && velocity.y < 0)
@@ -96,8 +99,8 @@ public class PlayerMovement : MonoBehaviour
             mouseY += deltaMouse.y;
         }
 
-        mouseX *= mouseSensitivity * Time.deltaTime;
-        mouseY *= mouseSensitivity * Time.deltaTime;
+        mouseX *= turnSensitivity * Time.deltaTime;
+        mouseY *= turnSensitivity * Time.deltaTime;
 
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
@@ -108,6 +111,11 @@ public class PlayerMovement : MonoBehaviour
 
 
         //transform.Rotate(Vector3.up * mouseX);
+        /*
+                Vector2 turnVector = turn.ReadValue<Vector2>();
+                Debug.Log("Turn vector = "+turnVector.ToString());
+                transform.localRotation = Quaternion.Euler(0f,turnVector.y*turnSensitivity*Time.deltaTime , 0f);*/
+
         #endregion
     }
 }
