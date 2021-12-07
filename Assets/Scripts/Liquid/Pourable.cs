@@ -19,7 +19,7 @@ public class Pourable : MonoBehaviour {
 
     private void Start() {
         liquidRenderer.material.SetFloat("_FillAmount", container.maxFillAmount);
-        liquidRenderer.material.SetColor("_Tint", liquid.liquidColor); 
+        liquidRenderer.material.SetColor("_Tint", liquid.liquidColor);
         Color lightColor = new Color(liquid.liquidColor.r * 2f, liquid.liquidColor.g * 2f, liquid.liquidColor.b * 2f);
         liquidRenderer.material.SetColor("_RimColor", lightColor);
         liquidRenderer.material.SetColor("_TopColor", lightColor);
@@ -30,7 +30,7 @@ public class Pourable : MonoBehaviour {
     private void Update() {
         bool pourCheck = CalculatePourAngle() > pourThreshold;
 
-        if (isEmpty==false && isPouring != pourCheck) {
+        if (isEmpty == false && isPouring != pourCheck) {
             isPouring = pourCheck;
             if (isPouring) {
                 StartPour();
@@ -48,13 +48,27 @@ public class Pourable : MonoBehaviour {
     }
 
     private void EmptyingBottle() {
-        float val = liquidRenderer.material.GetFloat("_FillAmount") + (0.01f*liquid.liquidFluidity);
+        float val = liquidRenderer.material.GetFloat("_FillAmount") + (0.01f * liquid.liquidFluidity);
         liquidRenderer.material.SetFloat("_FillAmount", val);
         if (val >= container.minFillAmount) {
             isEmpty = true;
             isPouring = false;
             EndPour();
         }
+    }
+
+    public void StartFillBotle() {
+        StartCoroutine(nameof(FillBottle));
+    }
+
+    private IEnumerator FillBottle() {
+        float val = liquidRenderer.material.GetFloat("_FillAmount") - 0.1f;
+        while(val >= container.maxFillAmount){
+            liquidRenderer.material.SetFloat("_FillAmount", val);
+            val = liquidRenderer.material.GetFloat("_FillAmount") - 0.1f;
+            yield return new WaitForSeconds(0.05f);
+        }
+
     }
 
     private void EndPour() {

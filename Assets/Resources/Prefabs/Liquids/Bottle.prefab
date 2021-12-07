@@ -42,7 +42,6 @@ GameObject:
   - component: {fileID: 6420202349085726372}
   - component: {fileID: 6420202349085726395}
   - component: {fileID: 6420202349085726394}
-  - component: {fileID: 6420202349085726393}
   - component: {fileID: 6420202349085726373}
   m_Layer: 0
   m_Name: Liquid
@@ -890,20 +889,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6420202349085726399}
   m_Mesh: {fileID: 0}
---- !u!64 &6420202349085726393
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6420202349085726399}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!114 &6420202349085726373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -931,8 +916,9 @@ GameObject:
   - component: {fileID: 6420202349461737506}
   - component: {fileID: 6420202349461737505}
   - component: {fileID: 6420202349461737504}
-  - component: {fileID: 6420202349461737511}
   - component: {fileID: 6420202349461737507}
+  - component: {fileID: 3914306820650987730}
+  - component: {fileID: 4413725366422600082}
   m_Layer: 0
   m_Name: Bottle
   m_TagString: Untagged
@@ -947,7 +933,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6420202349461737509}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.086, y: 0.722, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1781,20 +1767,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6420202349461737509}
   m_Mesh: {fileID: 0}
---- !u!64 &6420202349461737511
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6420202349461737509}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!114 &6420202349461737507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1812,3 +1784,32 @@ MonoBehaviour:
   liquidRenderer: {fileID: 6420202349085726395}
   container: {fileID: 11400000, guid: fd72abe014d8a174e9f0f595febbe792, type: 2}
   liquid: {fileID: 11400000, guid: 89763ac0122c2f441b247e879c0fb01e, type: 2}
+--- !u!54 &3914306820650987730
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6420202349461737509}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &4413725366422600082
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6420202349461737509}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3, y: 0.89972353, z: 0.3}
+  m_Center: {x: 0.000000044703484, y: 0, z: 0}
