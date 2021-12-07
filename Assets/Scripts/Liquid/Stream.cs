@@ -9,8 +9,10 @@ public class Stream : MonoBehaviour {
 
     private Coroutine pourRoutine;
     private Vector3 targetPosition = Vector3.zero;
+    private GameObject stopingObject;
 
-    public float streamSpeed = 0.5f;
+    private Color color;
+    private float fluidity;
 
     private void Awake() {
         lineRenderer = GetComponent<LineRenderer>();
@@ -22,8 +24,14 @@ public class Stream : MonoBehaviour {
         MoveToPosition(1, transform.position);
     }
 
-    public void Begin() {
+    public void Begin(Color color, float fluidity) {
+        this.color = color;
+        this.fluidity = fluidity;
+        lineRenderer.sortingOrder = 1;
+        lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
+        lineRenderer.material.color = color;
         pourRoutine = StartCoroutine(nameof(BeginPour));
+        StartCoroutine(nameof(UpdateParticules));
     }
 
     private IEnumerator BeginPour() {
@@ -61,6 +69,14 @@ public class Stream : MonoBehaviour {
 
         return endPoint;
     }
+    private GameObject FindStopObject() {
+        RaycastHit hit;
+        Ray ray = new Ray(transform.position, Vector3.down);
+
+        Physics.Raycast(ray, out hit, 2.0f);
+
+        return hit.transform.gameObject;
+    }
 
     private void MoveToPosition(int index, Vector3 targetPosition) {
         lineRenderer.SetPosition(index, targetPosition);
@@ -68,7 +84,7 @@ public class Stream : MonoBehaviour {
 
     private void AnimateToPosition(int index, Vector3 targetPosition) {
         Vector3 currentPoint = lineRenderer.GetPosition(index);
-        Vector3 newPosition = Vector3.MoveTowards(currentPoint, targetPosition, Time.deltaTime*1.5f);
+        Vector3 newPosition = Vector3.MoveTowards(currentPoint, targetPosition, Time.deltaTime*1.5f*fluidity);
 
         lineRenderer.SetPosition(index, newPosition);
     }
@@ -80,12 +96,20 @@ public class Stream : MonoBehaviour {
 
     private IEnumerator UpdateParticules() {
         bool isHitting;
+        Fillable fillableObj;
         while (gameObject.activeSelf) {
             splashParticles.gameObject.transform.position = targetPosition;
 
             isHitting = HasReachedPosition(1, targetPosition);
             splashParticles.gameObject.SetActive(isHitting);
-
+            if (isHitting) {
+                stopingObject = FindStopObject();
+                fillableObj = stopingObject.GetComponent<Fillable>();
+                if (fillableObj != null) {
+                    fillableObj.FillContainer(color, fluidity*0.001f);
+                    fillableObj.fillamount++;
+                }
+            }
             yield return null;
         }
     }
