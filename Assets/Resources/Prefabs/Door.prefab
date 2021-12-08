@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9142680490532828264}
   - component: {fileID: 547660169543741798}
   - component: {fileID: 3929488800543036188}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DoorLock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 1717933206601553200}
   - component: {fileID: 8833875739974548359}
   - component: {fileID: 5497129072522799320}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}

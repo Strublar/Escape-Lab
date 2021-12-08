@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 408678925}
   - component: {fileID: 408678927}
   - component: {fileID: 408678926}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CordeRenderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 1958177042495246869}
   - component: {fileID: 6035528373737270382}
   - component: {fileID: 5920220208023109760}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightPlank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -302,7 +302,7 @@ GameObject:
   - component: {fileID: 6035528374209191244}
   - component: {fileID: 136577236}
   - component: {fileID: 368137348657806978}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftPlank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -438,7 +438,7 @@ GameObject:
   - component: {fileID: 6035528374919503981}
   - component: {fileID: 6035528374919503978}
   - component: {fileID: 6035528374919503979}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftPulley
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -519,7 +519,7 @@ GameObject:
   - component: {fileID: 6035528375571659874}
   - component: {fileID: 6035528375571659871}
   - component: {fileID: 6035528375571659872}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightPulley
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -599,7 +599,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6035528375627152617}
   - component: {fileID: 6035528375627152616}
-  m_Layer: 0
+  - component: {fileID: 1331235721}
+  m_Layer: 7
   m_Name: PulleySystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -641,3 +642,16 @@ MonoBehaviour:
   rightPlank: {fileID: 6035528373737270389}
   leftPulley: {fileID: 6035528374919503982}
   rightPulley: {fileID: 6035528375571659875}
+--- !u!65 &1331235721
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6035528375627152618}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
