@@ -8353,6 +8353,10 @@ PrefabInstance:
       value: Door
       objectReference: {fileID: 0}
     - target: {fileID: 9121386982317076574, guid: dca815cd38f72c441ab0018b5a50c349, type: 3}
+      propertyPath: m_UseLimits
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9121386982317076574, guid: dca815cd38f72c441ab0018b5a50c349, type: 3}
       propertyPath: m_EnableCollision
       value: 0
       objectReference: {fileID: 0}
