@@ -20,7 +20,7 @@ public class DoorLock : MonoBehaviour
         {
             Debug.Log("Key entered doorlock");
             doorRb.constraints = RigidbodyConstraints.FreezePosition |
-                RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+                RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY;
 
         }
     }
