@@ -19,7 +19,7 @@ public class DoorLock : MonoBehaviour
         if (other.transform.tag == "key")
         {
             Debug.Log("Key entered doorlock");
-            doorRb.constraints = RigidbodyConstraints.FreezePosition;
+            doorRb.constraints = RigidbodyConstraints.None;
 
         }
     }
