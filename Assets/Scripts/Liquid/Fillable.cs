@@ -32,7 +32,7 @@ public class Fillable : MonoBehaviour {
         if (val >= container.maxFillAmount) { 
             liquidRenderer.material.SetFloat("_FillAmount", val-liquidAmount);
             rb.WakeUp();
-            rb.mass += liquidAmount*3;
+            rb.mass += liquidAmount*4;
         }
         //changer coulor (get liquid color if empty, turn brown if another color)
         Color actualColor = liquidRenderer.material.GetColor("_Tint");
