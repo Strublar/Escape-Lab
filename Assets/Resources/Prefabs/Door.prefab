@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9142680490532828264}
   - component: {fileID: 547660169543741798}
   - component: {fileID: 3929488800543036188}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DoorLock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,10 +70,9 @@ GameObject:
   - component: {fileID: 5744484662951918293}
   - component: {fileID: 5744484662952917013}
   - component: {fileID: 5744484662950913750}
-  - component: {fileID: 1717933206601553200}
-  - component: {fileID: 8833875739974548359}
   - component: {fileID: 5497129072522799320}
-  m_Layer: 0
+  - component: {fileID: 9121386982317076574}
+  m_Layer: 7
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,44 +158,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 2336cdcbcfff9ee4d9865ba46e29914d, type: 3}
---- !u!1818360609 &1717933206601553200
-RotationConstraint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5744484662950913749}
-  m_Enabled: 0
-  m_Weight: 1
-  m_RotationAtRest: {x: -90, y: 0, z: 90}
-  m_RotationOffset: {x: 0, y: 0, z: 0}
-  m_AffectRotationX: 1
-  m_AffectRotationY: 1
-  m_AffectRotationZ: 1
-  m_IsContraintActive: 1
-  m_IsLocked: 1
-  m_Sources:
-  - sourceTransform: {fileID: 5744484662950623989}
-    weight: 1
---- !u!1818360608 &8833875739974548359
-PositionConstraint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5744484662950913749}
-  m_Enabled: 0
-  m_Weight: 1
-  m_TranslationAtRest: {x: -4, y: 1, z: -0.605}
-  m_TranslationOffset: {x: 0, y: 0, z: 0}
-  m_AffectTranslationX: 1
-  m_AffectTranslationY: 1
-  m_AffectTranslationZ: 1
-  m_IsContraintActive: 1
-  m_IsLocked: 1
-  m_Sources:
-  - sourceTransform: {fileID: 5744484662950623989}
-    weight: 1
 --- !u!54 &5497129072522799320
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -213,3 +174,39 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!59 &9121386982317076574
+HingeJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5744484662950913749}
+  m_ConnectedBody: {fileID: 0}
+  m_ConnectedArticulationBody: {fileID: 0}
+  m_Anchor: {x: 0, y: 0, z: 0}
+  m_Axis: {x: 0, y: 0, z: 1}
+  m_AutoConfigureConnectedAnchor: 1
+  m_ConnectedAnchor: {x: -4, y: 1, z: -0.605}
+  m_UseSpring: 0
+  m_Spring:
+    spring: 0
+    damper: 0
+    targetPosition: 0
+  m_UseMotor: 0
+  m_Motor:
+    targetVelocity: 0
+    force: 0
+    freeSpin: 0
+  m_UseLimits: 0
+  m_Limits:
+    min: -90
+    max: 90
+    bounciness: 0
+    bounceMinVelocity: 0.2
+    contactDistance: 0
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
