@@ -18,7 +18,7 @@ public class WheelSystem : MonoBehaviour {
     private IEnumerator ActivateMovement() {
         while (plank.transform.localPosition.y < 0) {
             plank.transform.localPosition += new Vector3(0, 0.05f, 0);
-            wheel.transform.rotation = new Quaternion(wheel.transform.rotation.x+0.05f, wheel.transform.rotation.y, wheel.transform.rotation.z, wheel.transform.rotation.w);
+            wheel.transform.localRotation = new Quaternion(wheel.transform.localRotation.x+0.05f, wheel.transform.localRotation.y, wheel.transform.localRotation.z, wheel.transform.localRotation.w);
             yield return new WaitForSeconds(0.05f);
         }
     }
