@@ -60,7 +60,7 @@ public class Stream : MonoBehaviour {
         Destroy(gameObject);
     }
 
-    private Vector3 FindEndPoint() {
+    public Vector3 FindEndPoint() {
         RaycastHit hit;
         Ray ray = new Ray(transform.position, Vector3.down);
 

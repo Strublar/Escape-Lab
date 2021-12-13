@@ -1785,6 +1785,8 @@ MonoBehaviour:
   liquidRenderer: {fileID: 6420202349085726395}
   container: {fileID: 11400000, guid: fd72abe014d8a174e9f0f595febbe792, type: 2}
   liquid: {fileID: 11400000, guid: 89763ac0122c2f441b247e879c0fb01e, type: 2}
+  keyPrefab: {fileID: 2851648177503144204, guid: ffd50e8883350ea419d267b9f726a98e, type: 3}
+  iscontainingKey: 0
 --- !u!54 &3914306820650987730
 Rigidbody:
   m_ObjectHideFlags: 0

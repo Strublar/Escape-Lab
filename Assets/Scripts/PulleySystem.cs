@@ -23,9 +23,11 @@ public class PulleySystem : MonoBehaviour {
     }
 
     private void Update() {
+        float weightDiff =0.0f;
         if (leftPulleySystemPlank.massOnPlank > rightPulleySystemPlank.massOnPlank + 0.05) {
             //more weight on left
-            newPositionHigh = rightPlank.transform.localPosition + new Vector3(0f, 0.002f, 0f);
+            weightDiff = leftPulleySystemPlank.massOnPlank / Mathf.Max(rightPulleySystemPlank.massOnPlank, 1);
+            newPositionHigh = rightPlank.transform.localPosition + new Vector3(0f, 0.0004f*weightDiff, 0f);
             if (newPositionHigh.y >= uperLimit)
                 newPositionHigh = new Vector3(rightPlank.transform.localPosition.x, uperLimit, rightPlank.transform.localPosition.z);
             newPositionLow = new Vector3(leftPlank.transform.localPosition.x, -(ropeLength+newPositionHigh.y), leftPlank.transform.localPosition.z);
@@ -35,7 +37,8 @@ public class PulleySystem : MonoBehaviour {
 
         } else if (rightPulleySystemPlank.massOnPlank > leftPulleySystemPlank.massOnPlank + 0.05) {
             //more weight on right
-            newPositionHigh = leftPlank.transform.localPosition + new Vector3(0f, 0.002f, 0f);
+            weightDiff = rightPulleySystemPlank.massOnPlank / Mathf.Max(leftPulleySystemPlank.massOnPlank, 1);
+            newPositionHigh = leftPlank.transform.localPosition + new Vector3(0f, 0.0004f*weightDiff, 0f);
             if (newPositionHigh.y >= uperLimit)
                 newPositionHigh = new Vector3(leftPlank.transform.localPosition.x, uperLimit, leftPlank.transform.localPosition.z);
             newPositionLow = new Vector3(rightPlank.transform.localPosition.x, -(ropeLength +newPositionHigh.y), rightPlank.transform.localPosition.z);
