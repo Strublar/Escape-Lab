@@ -11,6 +11,7 @@ public class Pourable : MonoBehaviour {
     public SLiquid liquid;
     public GameObject keyPrefab;
     public bool iscontainingKey = false;
+    public GameObject keyModel;
 
     private bool isPouring = false;
     private bool isEmpty = false;
@@ -57,6 +58,7 @@ public class Pourable : MonoBehaviour {
             isPouring = false;
             //if there is a key inside
             if (iscontainingKey) {
+                Destroy(keyModel);
                 Instantiate(keyPrefab, currentStream.FindEndPoint(), Quaternion.identity);
             }
             EndPour();
