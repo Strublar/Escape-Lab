@@ -1057,7 +1057,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6420202349461737510, guid: f1034ee483b3ddb44bd354b6817f3c24, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.15
+      value: 1.083
       objectReference: {fileID: 0}
     - target: {fileID: 6420202349461737510, guid: f1034ee483b3ddb44bd354b6817f3c24, type: 3}
       propertyPath: m_LocalPosition.z
@@ -13750,6 +13750,10 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3530487434920885555, guid: 98ba86548ddcd664e9df1d008a5c8f97, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3530487434920885555, guid: 98ba86548ddcd664e9df1d008a5c8f97, type: 3}
       propertyPath: m_TagString
       value: torch
       objectReference: {fileID: 0}
@@ -16964,7 +16968,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8726149470679424470, guid: 02826d28ff8255346a9c13382d557115, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.055
+      value: 0.931
       objectReference: {fileID: 0}
     - target: {fileID: 8726149470679424470, guid: 02826d28ff8255346a9c13382d557115, type: 3}
       propertyPath: m_LocalPosition.z
@@ -36870,6 +36874,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 575101251}
     m_Modifications:
+    - target: {fileID: 8266949716707160794, guid: 34534f9a2d6df1c4f8dee201f8d50aaa, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8266949716707160795, guid: 34534f9a2d6df1c4f8dee201f8d50aaa, type: 3}
       propertyPath: m_Name
       value: Chandelier_Triple
@@ -36884,7 +36892,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8266949716707585787, guid: 34534f9a2d6df1c4f8dee201f8d50aaa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.8383548
+      value: 0.862
       objectReference: {fileID: 0}
     - target: {fileID: 8266949716707585787, guid: 34534f9a2d6df1c4f8dee201f8d50aaa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -41433,7 +41441,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &2135371447
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -41921,6 +41929,10 @@ PrefabInstance:
     - target: {fileID: 2851648177503144204, guid: ffd50e8883350ea419d267b9f726a98e, type: 3}
       propertyPath: m_Name
       value: Key
+      objectReference: {fileID: 0}
+    - target: {fileID: 6447447563245992780, guid: ffd50e8883350ea419d267b9f726a98e, type: 3}
+      propertyPath: m_Mass
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffd50e8883350ea419d267b9f726a98e, type: 3}
