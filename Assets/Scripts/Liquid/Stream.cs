@@ -97,6 +97,7 @@ public class Stream : MonoBehaviour {
     private IEnumerator UpdateParticules() {
         bool isHitting;
         Fillable fillableObj;
+        Funnel funnelObj;
         while (gameObject.activeSelf) {
             splashParticles.gameObject.transform.position = targetPosition;
 
@@ -106,8 +107,13 @@ public class Stream : MonoBehaviour {
                 stopingObject = FindStopObject();
                 fillableObj = stopingObject.GetComponent<Fillable>();
                 if (fillableObj != null) {
-                    fillableObj.FillContainer(color, fluidity*0.001f);
+                    fillableObj.FillContainer(color, fluidity * 0.001f);
                     fillableObj.fillamount++;
+                } else {
+                    funnelObj = stopingObject.GetComponent<Funnel>();
+                    if (funnelObj != null) {
+                        funnelObj.Fill(color, fluidity * 0.001f);
+                    }
                 }
             }
             yield return null;
