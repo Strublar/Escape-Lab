@@ -16742,6 +16742,7 @@ MonoBehaviour:
   endTime: 0
   currentLevel: 0
   score: 0
+  resetScore: 0
 --- !u!4 &765459187
 Transform:
   m_ObjectHideFlags: 0
