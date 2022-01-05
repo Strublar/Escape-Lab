@@ -52,6 +52,9 @@ public class GameManager : MonoBehaviour
 
     public void LoadLevel(MenuLevel level)
     {
+        CharacterController cc = player.GetComponent<CharacterController>();
+        cc.enabled = false;
         player.transform.position = level.waypoint.position;
+        cc.enabled = true;
     }
 }

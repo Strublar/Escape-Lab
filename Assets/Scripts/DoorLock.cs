@@ -6,12 +6,13 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class DoorLock : MonoBehaviour
 {
+    [SerializeField] private GameObject door;
     [SerializeField] private Rigidbody doorRb;
     [SerializeField] private int level;
     public void Start()
     {
         doorRb.constraints = RigidbodyConstraints.FreezeAll;
-
+        door.layer = 0;
     }
 
     public void OnTriggerEnter(Collider other)
@@ -39,6 +40,7 @@ public class DoorLock : MonoBehaviour
         other.gameObject.transform.localPosition = new Vector3(-0.01f,-.2f,0.015f);
         other.gameObject.transform.localRotation = Quaternion.Euler(new Vector3(0, 90, 0));
 
+        door.layer = 7;
 
 
     }
