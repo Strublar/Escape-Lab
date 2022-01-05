@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         LoadMenu();
+        
     }
 
     public void LoadMenu()
