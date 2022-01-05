@@ -26,7 +26,7 @@ public class Ice : MonoBehaviour {
             currentState += 1;
             iceState[currentState].SetActive(true);
             if(key != null && currentState == iceState.Length - 2) {
-                key.GetComponent<XRGrabInteractable>().enabled = false;
+                key.GetComponent<XRGrabInteractable>().enabled = true;
                 key.GetComponent<Rigidbody>().useGravity = true;
             }
         } else {
