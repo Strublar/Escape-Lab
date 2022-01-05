@@ -10,11 +10,23 @@ public class ScoreManager : MonoBehaviour
 
     [SerializeField] private int currentLevel;
     [SerializeField] private float score;
-
+    [SerializeField] private bool resetScore;
 
     public void Awake()
     {
         m = this;
+    }
+
+    public void Update()
+    {
+        if (resetScore)
+        {
+            ResetScores();
+            resetScore = false;
+            
+        }
+            
+
     }
 
     public void StartTimer(int level)
@@ -77,5 +89,19 @@ public class ScoreManager : MonoBehaviour
         return 0;
     }
 
+    public void ResetScores()
+    {
+        for(int level = 0; level<3;level++)
+        {
+            if (PlayerPrefs.GetFloat("score" + level) < score)
+            {
+                Debug.Log("New Record");
+                PlayerPrefs.SetFloat("score" + level, score);
+            }
+        }
+        PlayerPrefs.SetInt("currentLevel", 0);
+
+        Debug.Log("Scores reset");
+    }
 
 }

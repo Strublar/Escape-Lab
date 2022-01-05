@@ -28,8 +28,9 @@ public class DoorLock : MonoBehaviour
     {
         doorRb.constraints = RigidbodyConstraints.None;
 
-        ScoreManager.m.StartTimer(level+1);
         ScoreManager.m.EndTimer(level);
+        ScoreManager.m.StartTimer(level+1);
+        
 
         other.gameObject.GetComponent<XRGrabInteractable>().enabled = false;
         other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
