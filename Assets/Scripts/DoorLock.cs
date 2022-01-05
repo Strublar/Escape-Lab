@@ -7,7 +7,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class DoorLock : MonoBehaviour
 {
     [SerializeField] private Rigidbody doorRb;
-    [SerializeField] private bool isBeginLock, isEndLock;
+    [SerializeField] private int level;
     public void Start()
     {
         doorRb.constraints = RigidbodyConstraints.FreezeAll;
@@ -27,10 +27,10 @@ public class DoorLock : MonoBehaviour
     public void Unlock(Collider other)
     {
         doorRb.constraints = RigidbodyConstraints.None;
-        if (isBeginLock)
-            ScoreManager.m.StartTimer();
-        if (isEndLock)
-            ScoreManager.m.EndTimer();
+
+        ScoreManager.m.StartTimer(level+1);
+        ScoreManager.m.EndTimer(level);
+
         other.gameObject.GetComponent<XRGrabInteractable>().enabled = false;
         other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
         other.gameObject.GetComponent<Collider>().enabled = false;
