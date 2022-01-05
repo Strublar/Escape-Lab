@@ -31,5 +31,6 @@ public class XRPlayerMovement : MonoBehaviour
         Quaternion headDirection = Quaternion.Euler(0, cameraObject.transform.eulerAngles.y, 0);
         Vector3 direction = headDirection * new Vector3(inputAxis.x, 0, inputAxis.y);
         character.Move(direction*Time.fixedDeltaTime*speed);
+        character.Move(new Vector3(0, -transform.position.y, 0));
     }
 }
