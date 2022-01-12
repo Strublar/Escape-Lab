@@ -56,5 +56,12 @@ public class GameManager : MonoBehaviour
         cc.enabled = false;
         player.transform.position = level.waypoint.position;
         cc.enabled = true;
+        ScoreManager.m.StartTimer();
+    }
+
+    public void OnApplicationQuit()
+    {
+        ScoreManager.m.SaveCurrentTimer();
+        
     }
 }

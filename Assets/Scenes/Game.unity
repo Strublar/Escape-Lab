@@ -36324,6 +36324,10 @@ PrefabInstance:
       propertyPath: level
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 3929488800543036188, guid: dca815cd38f72c441ab0018b5a50c349, type: 3}
+      propertyPath: isEndLock
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5744484662950623989, guid: dca815cd38f72c441ab0018b5a50c349, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -59531,6 +59535,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1085461810}
     m_Modifications:
+    - target: {fileID: 3929488800543036188, guid: dca815cd38f72c441ab0018b5a50c349, type: 3}
+      propertyPath: isBeginLock
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5744484662950623989, guid: dca815cd38f72c441ab0018b5a50c349, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -79881,6 +79889,7 @@ MonoBehaviour:
   currentLevel: 0
   score: 0
   resetScore: 0
+  savedTimer: 0
 --- !u!4 &1693909564
 Transform:
   m_ObjectHideFlags: 0

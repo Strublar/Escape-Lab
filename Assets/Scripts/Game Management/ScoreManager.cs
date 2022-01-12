@@ -11,6 +11,7 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private int currentLevel;
     [SerializeField] private float score;
     [SerializeField] private bool resetScore;
+    [SerializeField] private float savedTimer;
 
     public void Awake()
     {
@@ -27,20 +28,23 @@ public class ScoreManager : MonoBehaviour
             resetScore = false;
             
         }
-            
+        
 
     }
 
     public void StartTimer()
     {
+        savedTimer = GetTimer();
         startTime = Time.time;
+        Debug.Log("Starting Timer");
     }
 
     public void EndTimer()
     {
         endTime = Time.time;
-        score = endTime - startTime;
+        score = endTime - startTime+savedTimer;
         SaveScore();
+        Debug.Log("Ending Timer");
     }
 
     public void SaveScore()
@@ -84,7 +88,8 @@ public class ScoreManager : MonoBehaviour
 
     public void SaveCurrentTimer()
     {
-        PlayerPrefs.SetFloat("timer", Time.time-startTime);
+        Debug.Log("Saving timer");
+        PlayerPrefs.SetFloat("timer", Time.time-startTime+savedTimer);
     }
 
     public float GetTimer()
@@ -119,7 +124,7 @@ public class ScoreManager : MonoBehaviour
             }
         }
         PlayerPrefs.SetInt("currentLevel", 0);
-
+        PlayerPrefs.SetFloat("timer", 0f);
         Debug.Log("Scores reset");
     }
 
