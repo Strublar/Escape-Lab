@@ -7,6 +7,11 @@ public class MenuLevel : MonoBehaviour
     public int level;
     public GameObject closedChest, openedChest, key;
     public Transform waypoint;
+
+    public List<GameObject> lights;
+
+    
+
     public void Unlock()
     {
         closedChest.SetActive(false);
@@ -25,7 +30,4 @@ public class MenuLevel : MonoBehaviour
     {
         GameManager.gm.LoadLevel(this);
     }
-
-    
-
 }
