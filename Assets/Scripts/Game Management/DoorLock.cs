@@ -6,9 +6,11 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class DoorLock : MonoBehaviour
 {
+    [SerializeField] private bool isBeginLock, isEndLock;
     [SerializeField] private GameObject door;
     [SerializeField] private Rigidbody doorRb;
     [SerializeField] private int level;
+
     public void Start()
     {
         doorRb.constraints = RigidbodyConstraints.FreezeAll;
@@ -29,9 +31,13 @@ public class DoorLock : MonoBehaviour
     {
         doorRb.constraints = RigidbodyConstraints.None;
 
-        ScoreManager.m.EndTimer(level);
-        ScoreManager.m.StartTimer(level+1);
-        
+        if(isEndLock)
+            ScoreManager.m.EndTimer();
+        if(isBeginLock)
+            ScoreManager.m.StartTimer();
+
+        ScoreManager.m.SaveCurrentLevel(level);
+
 
         other.gameObject.GetComponent<XRGrabInteractable>().enabled = false;
         other.gameObject.GetComponent<Rigidbody>().isKinematic = true;

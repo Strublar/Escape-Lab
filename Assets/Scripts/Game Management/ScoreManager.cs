@@ -17,6 +17,8 @@ public class ScoreManager : MonoBehaviour
         m = this;
     }
 
+    
+
     public void Update()
     {
         if (resetScore)
@@ -29,56 +31,73 @@ public class ScoreManager : MonoBehaviour
 
     }
 
-    public void StartTimer(int level)
+    public void StartTimer()
     {
-        currentLevel = level;
         startTime = Time.time;
     }
 
-    public void EndTimer(int level)
+    public void EndTimer()
     {
         endTime = Time.time;
         score = endTime - startTime;
-        SaveScore(level);
+        SaveScore();
     }
 
-    public void SaveScore(int level)
+    public void SaveScore()
     {
         Debug.Log("Saving Scores");
         //timer
-        if(PlayerPrefs.HasKey("score"+level))
+        if(PlayerPrefs.HasKey("score"))
         {
-            if(PlayerPrefs.GetFloat("score" + level) < score)
+            if(PlayerPrefs.GetFloat("score") < score)
             {
                 Debug.Log("New Record");
-                PlayerPrefs.SetFloat("score" + level, score);
+                PlayerPrefs.SetFloat("score", score);
             }
         }
         else
         {
             Debug.Log("New Record");
-            PlayerPrefs.SetFloat("score" + level, score);
+            PlayerPrefs.SetFloat("score", score);
         }
 
-        //Levels done
-        if(PlayerPrefs.HasKey("currentLevel"))
-        {
+        
+    }
 
-            if (PlayerPrefs.GetInt("currentLevel") < level+1)
+    public void SaveCurrentLevel(int level)
+    {
+        //Levels done
+        if (PlayerPrefs.HasKey("currentLevel"))
+        {
+            Debug.Log("CHecking current level : " + PlayerPrefs.GetInt("currentLevel") + " vs " + (level + 1));
+            if (PlayerPrefs.GetInt("currentLevel") < level + 1)
             {
-                PlayerPrefs.SetInt("currentLevel", level+1);
+                PlayerPrefs.SetInt("currentLevel", level + 1);
+                Debug.Log("Saved level " + (level + 1));
             }
         }
         else
         {
-            PlayerPrefs.SetInt("currentLevel", level+1);
+            PlayerPrefs.SetInt("currentLevel", level + 1);
         }
     }
 
-    public float GetHighScore(int level)
+    public void SaveCurrentTimer()
     {
-        if (PlayerPrefs.HasKey("score" + level))
-            return PlayerPrefs.GetFloat("score" + level);
+        PlayerPrefs.SetFloat("timer", Time.time-startTime);
+    }
+
+    public float GetTimer()
+    {
+        if (PlayerPrefs.HasKey("timer"))
+            return PlayerPrefs.GetFloat("timer");
+        return 0f;
+    }
+
+    public float GetHighScore()
+    {
+        if (PlayerPrefs.HasKey("score"))
+            return PlayerPrefs.GetFloat("score");
         return 0f;
     }
 
