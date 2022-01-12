@@ -44,6 +44,7 @@ public class Pourable : MonoBehaviour {
     }
 
     private void StartPour() {
+        AudioManager.Instance.PlayLiquidSound(gameObject);
         currentStream = CreateStream();
         currentStream.Begin(liquid.liquidColor, liquid.liquidFluidity);
 
@@ -81,6 +82,7 @@ public class Pourable : MonoBehaviour {
     }
 
     private void EndPour() {
+        AudioManager.Instance.StopLiquidSound(gameObject);
         CancelInvoke(nameof(EmptyingBottle));
         currentStream.End();
         currentStream = null;
