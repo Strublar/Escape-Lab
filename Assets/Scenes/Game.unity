@@ -36322,7 +36322,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3929488800543036188, guid: dca815cd38f72c441ab0018b5a50c349, type: 3}
       propertyPath: level
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5744484662950623989, guid: dca815cd38f72c441ab0018b5a50c349, type: 3}
       propertyPath: m_RootOrder
@@ -42787,7 +42787,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3929488800543036188, guid: dca815cd38f72c441ab0018b5a50c349, type: 3}
       propertyPath: level
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5744484662950623989, guid: dca815cd38f72c441ab0018b5a50c349, type: 3}
       propertyPath: m_RootOrder
@@ -79914,7 +79914,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1695706188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79927,7 +79927,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 103c789a5cdfa034596a6d2537dcaad5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 1.8
   character: {fileID: 1695706189}
   cameraObject: {fileID: 1395272995}
   inputSource: 4
