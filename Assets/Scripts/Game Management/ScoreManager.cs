@@ -69,10 +69,11 @@ public class ScoreManager : MonoBehaviour
         //Levels done
         if (PlayerPrefs.HasKey("currentLevel"))
         {
-
+            Debug.Log("CHecking current level : " + PlayerPrefs.GetInt("currentLevel") + " vs " + (level + 1));
             if (PlayerPrefs.GetInt("currentLevel") < level + 1)
             {
                 PlayerPrefs.SetInt("currentLevel", level + 1);
+                Debug.Log("Saved level " + (level + 1));
             }
         }
         else

@@ -37,6 +37,8 @@ public class DoorLock : MonoBehaviour
             ScoreManager.m.StartTimer();
 
         ScoreManager.m.SaveCurrentLevel(level);
+
+
         other.gameObject.GetComponent<XRGrabInteractable>().enabled = false;
         other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
         other.gameObject.GetComponent<Collider>().enabled = false;
