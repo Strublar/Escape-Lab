@@ -6,11 +6,11 @@ public class AudioManager : MonoBehaviour {
     public AudioClip[] playlist;
     public AudioClip grabSound;
     public AudioClip pourSound;
-    public AudioClip fireSound;
     public AudioSource audioSource;
     private int musicIndex = 0;
 
-    public AudioMixerGroup soundEffectMixer;
+    public AudioMixerGroup musicMixer;
+    public AudioMixerGroup soundMixer;
 
     private static AudioManager instance;
     private AudioManager() { } //block the use of new()
@@ -43,22 +43,36 @@ public class AudioManager : MonoBehaviour {
         audioSource.Play();
     }
 
-    public AudioSource PlayClip(AudioClip clip) {
+    public AudioSource PlayMusic(AudioClip clip) {
         AudioSource tempAudioSource = gameObject.AddComponent<AudioSource>();
         tempAudioSource.clip = clip;
-        tempAudioSource.outputAudioMixerGroup = soundEffectMixer;
+        tempAudioSource.outputAudioMixerGroup = musicMixer;
+        tempAudioSource.Play();
+        Destroy(tempAudioSource, clip.length);
+        return audioSource;
+    }
+    public AudioSource PlayClipAtGO(AudioClip clip, GameObject go, float volume =1) {
+        AudioSource tempAudioSource = go.AddComponent<AudioSource>();
+        tempAudioSource.clip = clip;
+        tempAudioSource.volume = volume;
+        tempAudioSource.spatialBlend = 1;
+        tempAudioSource.outputAudioMixerGroup = soundMixer;
         tempAudioSource.Play();
         Destroy(tempAudioSource, clip.length);
         return audioSource;
     }
 
-    public void PlayGrabSound() {
-        AudioManager.Instance.PlayClip(grabSound);
+    public void PlayGrabSound(GameObject go) {
+        AudioManager.Instance.PlayClipAtGO(grabSound, go);
     }
-    public void PlayLiquidSound() {
-        AudioManager.Instance.PlayClip(pourSound);
+    public void PlayLiquidSound(GameObject go) {
+        AudioManager.Instance.PlayClipAtGO(pourSound, go, 0.2f);
     }
-    public void PlayFire() {
-        AudioManager.Instance.PlayClip(fireSound);
+    public void StopLiquidSound(GameObject go) {
+        AudioSource tempAudioSource = go.GetComponent<AudioSource>();
+        if (tempAudioSource != null) {
+            Destroy(tempAudioSource);
+        }
     }
+
 }
