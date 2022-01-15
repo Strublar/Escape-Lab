@@ -79,4 +79,10 @@ public class AudioManager : MonoBehaviour {
         }
     }
 
+    public void PlayMusic(bool isOn) {
+        musicMixer.audioMixer.SetFloat("", isOn ? -10 : -80);
+    }
+    public void PlaySound(bool isOn) {
+        soundMixer.audioMixer.SetFloat("", isOn ? 0 : -80);
+    }
 }

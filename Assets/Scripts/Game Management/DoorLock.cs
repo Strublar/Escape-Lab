@@ -30,6 +30,7 @@ public class DoorLock : MonoBehaviour
     public void Unlock(Collider other)
     {
         doorRb.constraints = RigidbodyConstraints.None;
+        AudioManager.Instance.PlayUnlockSound(other.gameObject);
 
         if(isEndLock)
             ScoreManager.m.EndTimer();
