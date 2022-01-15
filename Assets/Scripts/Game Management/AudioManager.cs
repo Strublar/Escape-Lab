@@ -6,6 +6,7 @@ public class AudioManager : MonoBehaviour {
     public AudioClip[] playlist;
     public AudioClip grabSound;
     public AudioClip pourSound;
+    public AudioClip unlockSound;
     public AudioSource audioSource;
     private int musicIndex = 0;
 
@@ -65,6 +66,9 @@ public class AudioManager : MonoBehaviour {
     public void PlayGrabSound(GameObject go) {
         AudioManager.Instance.PlayClipAtGO(grabSound, go);
     }
+    public void PlayUnlockSound(GameObject go) {
+        AudioManager.Instance.PlayClipAtGO(unlockSound, go);
+    }
     public void PlayLiquidSound(GameObject go) {
         AudioManager.Instance.PlayClipAtGO(pourSound, go, 0.2f);
     }
@@ -75,4 +79,10 @@ public class AudioManager : MonoBehaviour {
         }
     }
 
+    public void PlayMusic(bool isOn) {
+        musicMixer.audioMixer.SetFloat("", isOn ? -10 : -80);
+    }
+    public void PlaySound(bool isOn) {
+        soundMixer.audioMixer.SetFloat("", isOn ? 0 : -80);
+    }
 }
