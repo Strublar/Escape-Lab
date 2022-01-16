@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class WheelSystem : MonoBehaviour {
     
     public GameObject flameLight;
     public GameObject wheel;
+    public VisualEffect steam;
     public GameObject plank;
 
     private void OnTriggerEnter(Collider other) {
         if (other.CompareTag("torch")){
             flameLight.SetActive(true);
+            steam.enabled = true;
             StartCoroutine(nameof(ActivateMovement));
         }
     }

@@ -70,7 +70,7 @@ public class AudioManager : MonoBehaviour {
         AudioManager.Instance.PlayClipAtGO(unlockSound, go);
     }
     public void PlayLiquidSound(GameObject go) {
-        AudioManager.Instance.PlayClipAtGO(pourSound, go, 0.2f);
+        AudioManager.Instance.PlayClipAtGO(pourSound, go, 0.8f);
     }
     public void StopLiquidSound(GameObject go) {
         AudioSource tempAudioSource = go.GetComponent<AudioSource>();
@@ -80,9 +80,9 @@ public class AudioManager : MonoBehaviour {
     }
 
     public void PlayMusic(bool isOn) {
-        musicMixer.audioMixer.SetFloat("", isOn ? -10 : -80);
+        musicMixer.audioMixer.SetFloat("MusicVolume", isOn ? -5 : -80);
     }
     public void PlaySound(bool isOn) {
-        soundMixer.audioMixer.SetFloat("", isOn ? 0 : -80);
+        soundMixer.audioMixer.SetFloat("SoundVolume", isOn ? 20 : -80);
     }
 }

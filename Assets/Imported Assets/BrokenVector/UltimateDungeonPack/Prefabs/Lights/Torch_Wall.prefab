@@ -313,13 +313,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -7707806290639336604, guid: 954a4c4f32152624a951aaf708b56041, type: 2}
   m_audioClip: {fileID: 8300000, guid: f4fb87f58724d444c98d71cf526e89a5, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.491
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 250
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
