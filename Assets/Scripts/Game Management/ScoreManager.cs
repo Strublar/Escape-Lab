@@ -138,4 +138,8 @@ public class ScoreManager : MonoBehaviour
         Debug.Log("Scores reset");
     }
 
+    public void StartNewRun()
+    {
+        savedTimer = 0f;
+    }
 }

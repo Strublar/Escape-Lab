@@ -35,7 +35,11 @@ public class DoorLock : MonoBehaviour
         if(isEndLock)
             ScoreManager.m.EndTimer();
         if(isBeginLock)
+        {
             ScoreManager.m.StartTimer();
+            ScoreManager.m.StartNewRun();
+        }
+            
 
         ScoreManager.m.SaveCurrentLevel(level);
 
