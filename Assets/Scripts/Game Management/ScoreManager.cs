@@ -52,8 +52,8 @@ public class ScoreManager : MonoBehaviour
 
     public void ShowScore()
     {
-        scoreText.text = "Score : " + score.ToString("0.00");
-        highScoreText.text = "Best : " + PlayerPrefs.GetFloat("score").ToString("0.00");
+        scoreText.text = "Score : " + score.ToString("0.00")+"s";
+        highScoreText.text = "Best : " + GetHighScore().ToString("0.00")+"s";
     }
 
     public void SaveScore()
@@ -124,7 +124,8 @@ public class ScoreManager : MonoBehaviour
 
     public void ResetScores()
     {
-        for(int level = 0; level<3;level++)
+
+        for (int level = 0; level<3;level++)
         {
             if (PlayerPrefs.GetFloat("score" + level) < score)
             {
