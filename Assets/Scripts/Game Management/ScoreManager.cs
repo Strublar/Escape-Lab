@@ -62,7 +62,7 @@ public class ScoreManager : MonoBehaviour
         //timer
         if(PlayerPrefs.HasKey("score"))
         {
-            if(PlayerPrefs.GetFloat("score") < score)
+            if(PlayerPrefs.GetFloat("score") > score)
             {
                 Debug.Log("New Record");
                 PlayerPrefs.SetFloat("score", score);
