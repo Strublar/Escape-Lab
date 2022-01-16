@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
@@ -12,7 +14,7 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private float score;
     [SerializeField] private bool resetScore;
     [SerializeField] private float savedTimer;
-
+    [SerializeField] private TextMeshPro scoreText, highScoreText;
     public void Awake()
     {
         m = this;
@@ -44,7 +46,14 @@ public class ScoreManager : MonoBehaviour
         endTime = Time.time;
         score = endTime - startTime+savedTimer;
         SaveScore();
+        ShowScore();
         Debug.Log("Ending Timer");
+    }
+
+    public void ShowScore()
+    {
+        scoreText.text = "Score : " + score.ToString("0.00");
+        highScoreText.text = "Best : " + PlayerPrefs.GetFloat("score").ToString("0.00");
     }
 
     public void SaveScore()
