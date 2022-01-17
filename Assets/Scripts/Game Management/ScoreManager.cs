@@ -15,6 +15,7 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private bool resetScore;
     [SerializeField] private float savedTimer;
     [SerializeField] private TextMeshPro scoreText, highScoreText;
+    [SerializeField] private List<SpriteRenderer> stars;
     public void Awake()
     {
         m = this;
@@ -27,6 +28,7 @@ public class ScoreManager : MonoBehaviour
         if (resetScore)
         {
             ResetScores();
+            PlayerPrefs.SetFloat("score", 0f);
             resetScore = false;
             
         }
@@ -54,6 +56,16 @@ public class ScoreManager : MonoBehaviour
     {
         scoreText.text = "Score : " + score.ToString("0.00")+"s";
         highScoreText.text = "Best : " + GetHighScore().ToString("0.00")+"s";
+        foreach (SpriteRenderer sprite in stars)
+            sprite.color = Color.black;
+
+        if (score <= 600)
+            stars[2].color = Color.white;
+        if (score <= 360)
+            stars[1].color = Color.white;
+        if (score <= 180)
+            stars[2].color = Color.white;
+
     }
 
     public void SaveScore()
@@ -125,14 +137,6 @@ public class ScoreManager : MonoBehaviour
     public void ResetScores()
     {
 
-        for (int level = 0; level<3;level++)
-        {
-            if (PlayerPrefs.GetFloat("score" + level) < score)
-            {
-                Debug.Log("New Record");
-                PlayerPrefs.SetFloat("score" + level, score);
-            }
-        }
         PlayerPrefs.SetInt("currentLevel", 0);
         PlayerPrefs.SetFloat("timer", 0f);
         Debug.Log("Scores reset");
@@ -141,5 +145,7 @@ public class ScoreManager : MonoBehaviour
     public void StartNewRun()
     {
         savedTimer = 0f;
+        ResetScores();
+        GameManager.gm.LoadMenu();
     }
 }
