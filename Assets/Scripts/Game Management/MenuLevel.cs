@@ -8,8 +8,7 @@ public class MenuLevel : MonoBehaviour
     public GameObject closedChest, openedChest, key;
     public Transform waypoint;
 
-    public List<GameObject> lights;
-
+    public GameObject props;
     
 
     public void Unlock()
@@ -17,6 +16,7 @@ public class MenuLevel : MonoBehaviour
         closedChest.SetActive(false);
         openedChest.SetActive(true);
         key.SetActive(true);
+        props.SetActive(true);
     }
 
     public void Lock()
@@ -24,6 +24,7 @@ public class MenuLevel : MonoBehaviour
         closedChest.SetActive(true);
         openedChest.SetActive(false);
         key.SetActive(false);
+        props.SetActive(false);
     }
 
     public void Select()
