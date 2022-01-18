@@ -12,7 +12,7 @@ public class ScoreManager : MonoBehaviour
 
     [SerializeField] private int currentLevel;
     [SerializeField] private float score;
-    [SerializeField] private bool resetScore;
+    [SerializeField] private bool resetScore, showScore;
     [SerializeField] private float savedTimer;
     [SerializeField] private TextMeshPro scoreText, highScoreText;
     [SerializeField] private List<SpriteRenderer> stars;
@@ -32,7 +32,11 @@ public class ScoreManager : MonoBehaviour
             resetScore = false;
             
         }
-        
+        if(showScore)
+        {
+            ShowScore();
+            showScore = false;
+        }
 
     }
 
@@ -60,7 +64,7 @@ public class ScoreManager : MonoBehaviour
             sprite.color = Color.black;
 
         if (score <= 600)
-            stars[2].color = Color.white;
+            stars[0].color = Color.white;
         if (score <= 360)
             stars[1].color = Color.white;
         if (score <= 180)
